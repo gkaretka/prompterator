@@ -473,7 +473,7 @@ def set_up_ui_generation():
         )
         struct_options_1, struct_options_2 = st.columns([3, 2])
         struct_options_1.select_slider(
-            "Select witch method to use for structured output",
+            "Select which method to use for structured output",
             options=[setting.value for setting in available_structured_output_settings],
             key="selected_structured_output_method",
         )
