@@ -429,9 +429,11 @@ def set_up_ui_generation():
     )
     selected_model: c.ModelProperties = st.session_state.model
     available_structured_output_settings = selected_model.supports_structured_output
-    structured_output_available = False
-    if len(available_structured_output_settings) > 1:
-        structured_output_available = True
+
+    structured_output_available = (
+        len(set(available_structured_output_settings) - {c.StructuredOutputImplementation.NONE})
+        > 0
+    )
 
     structured_output_enabled = col3.toggle(
         label="Structured output",
